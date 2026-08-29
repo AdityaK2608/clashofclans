@@ -31,7 +31,7 @@
       <section id="connectView" class="connect-panel card">
         <div class="eyebrow">CONNECT ACCOUNT</div>
         <h1>Turn your CoC account into a live dashboard.</h1>
-        <p class="lead">Enter your Player Tag and API token to load your account data. Your token stays in the browser session and is never written into the repository.</p>
+        <p class="lead">Enter your Player Tag and API token to load your account data. The token is held only in memory by this page and is never committed to GitHub.</p>
 
         <div class="form-grid">
           <label>
@@ -40,13 +40,13 @@
           </label>
           <label>
             <span>CoC API Token</span>
-            <input id="apiToken" type="password" autocomplete="off" placeholder="Bearer token" />
+            <input id="apiToken" type="password" autocomplete="off" placeholder="API token" />
           </label>
         </div>
 
         <div class="connect-actions">
           <button id="connectButton" class="primary-button" type="button">Connect & Load Dashboard</button>
-          <span class="helper">No token is committed to GitHub.</span>
+          <span class="helper">Token is never stored in the repository.</span>
         </div>
         <div id="connectError" class="alert error hidden" role="alert"></div>
       </section>
@@ -81,7 +81,7 @@
           <article class="card score-card">
             <div class="kicker">ACCOUNT PROGRESS</div>
             <div class="score-ring" id="overallScoreRing"><span id="overallScore">0%</span></div>
-            <div class="score-caption">Estimated based on tracked progression data</div>
+            <div class="score-caption">Calculated from the progression data returned by the API</div>
           </article>
         </div>
 
@@ -107,7 +107,6 @@
             <div class="section-title"><h2>Heroes</h2><span id="heroCount" class="muted-text">0 tracked</span></div>
             <div id="heroesList" class="entity-list"></div>
           </article>
-
           <article class="card">
             <div class="section-title"><h2>Troops</h2><span id="troopCount" class="muted-text">0 tracked</span></div>
             <div id="troopsList" class="entity-list"></div>
@@ -119,7 +118,6 @@
             <div class="section-title"><h2>Spells</h2><span id="spellCount" class="muted-text">0 tracked</span></div>
             <div id="spellsList" class="entity-list"></div>
           </article>
-
           <article class="card">
             <div class="section-title"><h2>Hero Equipment</h2><span id="equipmentCount" class="muted-text">0 tracked</span></div>
             <div id="equipmentList" class="entity-list"></div>
@@ -131,6 +129,7 @@
     </main>
   </div>
 
+  <script src="config.js"></script>
   <script src="app.js"></script>
 </body>
 </html>
